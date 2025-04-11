@@ -40,11 +40,11 @@ Izgrađena je pomoću Electron-a, uz podršku za srpski jezik i mogućnost pokre
 <details>
 <summary>🛠️ Build za Windows (.exe)</summary>
 
-Za kreiranje jednog .exe fajla koristi se electron-builder:
+Za kreiranje desktop aplikacije koristi se electron-builder:
 
     npm run dist
 
-Aplikacija će biti generisana u dist/ folderu kao samostalni .exe.
+Aplikacija će biti generisana u dist/ folderu kao samostalni .exe sa svim potrebnim pratećim fajlovima.
 
 </details>
 <details>
