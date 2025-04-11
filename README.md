@@ -84,6 +84,6 @@ Aplikacija će biti generisana u dist/ folderu kao samostalni .exe sa svim potre
 <details>
 <summary>📄 Licenca</summary>
 
-   GPL 3.0 © Ivica Stašuk
+   GPL-3.0 © Ivica Stašuk
    
 </details>
