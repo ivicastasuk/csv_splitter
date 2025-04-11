@@ -1,4 +1,4 @@
-📁 CSV Splitter Desktop Aplikacija
+# 📁 CSV Splitter Desktop Aplikacija
 
 Ova aplikacija omogućava jednostavno rasparčavanje velikih CSV fajlova na manje delove i njihovo pakovanje u ZIP arhivu – sve to kroz moderan i jednostavan grafički interfejs.
 
