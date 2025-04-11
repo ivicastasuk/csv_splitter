@@ -4,7 +4,8 @@ Ova aplikacija omogućava jednostavno rasparčavanje velikih CSV fajlova na manj
 
 Izgrađena je pomoću Electron-a, uz podršku za srpski jezik i mogućnost pokretanja kao .exe aplikacija za Windows.
 
-✨ Funkcionalnosti
+<details>
+<summary>✨ Funkcionalnosti</summary>
 
 - ✅ Unos CSV fajla putem dijaloga (ili drag & drop - u budućnosti)
 - ✅ Automatsko cepanje fajla na delove od po 100 redova (ili konfigurisano)
@@ -13,23 +14,31 @@ Izgrađena je pomoću Electron-a, uz podršku za srpski jezik i mogućnost pokre
 - ✅ Dijalog za čuvanje .zip fajla na disku
 - ✅ Podrška za srpska slova (UTF-8 sa BOM)
 
-📸 Izgled aplikacije
+</details>
+<details>
+<summary>📸 Izgled aplikacije</summary>
 
 [Screenshot uskoro!]
 
-🚀 Pokretanje lokalno (dev mode)
+</details>
+<details>
+<summary>🚀 Pokretanje lokalno (dev mode)</summary>
 
 1. Kloniraj repozitorijum:
+   ```
    git clone https://github.com/tvoj-user/csv-splitter.git
    cd csv-splitter
+   ```
 
 2. Instaliraj zavisnosti:
-   npm install
+   `npm install`
 
 3. Pokreni aplikaciju:
-   npm start
+   `npm start`
 
-🛠️ Build za Windows (.exe)
+</details>
+<details>
+<summary>🛠️ Build za Windows (.exe)</summary>
 
 Za kreiranje jednog .exe fajla koristi se electron-builder:
 
@@ -37,16 +46,21 @@ Za kreiranje jednog .exe fajla koristi se electron-builder:
 
 Aplikacija će biti generisana u dist/ folderu kao samostalni .exe.
 
-🧩 Tehnologije
+</details>
+<details>
+<summary>🧩 Tehnologije</summary>
 
 - Electron
 - PapaParse – za parsiranje CSV-a
 - Archiver – za kreiranje ZIP fajla
 - HTML / CSS / JavaScript
+- 
+</details>
+<details>
+<summary>📁 Struktura projekta</summary>
 
-📁 Struktura projekta
-
-csv-splitter/
+```
+.
 ├── main.js           // Electron main proces
 ├── preload.js        // Most ka rendereru
 ├── index.html        // UI
@@ -54,15 +68,22 @@ csv-splitter/
 ├── package.json
 ├── icon.ico          // Ikonica aplikacije (opciono)
 └── README.md
+```
 
-📝 TODO / Planirani dodaci
+</details>
+<details>
+<summary>📝 TODO / Planirani dodaci</summary>
 
 - [ ] Podešavanje broja redova po fajlu
 - [ ] Drag & drop CSV fajla u aplikaciju
 - [ ] Tema (dark/light)
 - [ ] Verzija za macOS i Linux
 - [ ] Napredna podešavanja i preview CSV-a pre obrade
+- [ ] 
+</details>
+<details>
+<summary>📄 Licenca</summary>
 
-📄 Licenca
-
-GPL 3.0 © Ivica Stašuk
+   GPL 3.0 © Ivica Stašuk
+   
+</details>
