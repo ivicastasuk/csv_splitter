@@ -21,18 +21,17 @@ function createWindow() {
 
 app.whenReady().then(createWindow);
 
-ipcMain.handle('select-and-split', async () => {
+ipcMain.handle('select-and-split', async (event, rowsPerFile) => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
         title: 'Izaberi CSV fajl',
-        filters: [{ name: 'CSV fajlovi', extensions: ['csv'] }],
-        properties: ['openFile']
+        filters: [ { name: 'CSV fajlovi', extensions: [ 'csv' ] } ],
+        properties: [ 'openFile' ]
     });
 
     if (canceled || filePaths.length === 0) return { canceled: true };
 
-    const filePath = filePaths[0];
-    const rowsPerFile = 100;
-    const baseFileName = path.basename(filePath, path.extname(filePath)); // npr. 'hoteli' iz 'hoteli.csv'
+    const filePath = filePaths[ 0 ];
+    const baseFileName = path.basename(filePath, path.extname(filePath));
 
     let data;
     try {
@@ -45,8 +44,8 @@ ipcMain.handle('select-and-split', async () => {
 
     const zipPath = dialog.showSaveDialogSync({
         title: 'Sačuvaj ZIP fajl',
-        defaultPath: 'rasparcani.csv.zip',
-        filters: [{ name: 'ZIP Fajlovi', extensions: ['zip'] }],
+        defaultPath: baseFileName + '.zip',
+        filters: [ { name: 'ZIP Fajlovi', extensions: [ 'zip' ] } ],
     });
 
     if (!zipPath) return { canceled: true };
@@ -62,17 +61,12 @@ ipcMain.handle('select-and-split', async () => {
             archive.append(csvChunk, { name: `${baseFileName}-${i / rowsPerFile + 1}.csv` });
         }
 
-        return new Promise((resolve, reject) => {
-            output.on('close', () => {
-                resolve({ success: true, path: zipPath });
-            });
-        
-            output.on('error', (err) => {
-                reject({ error: 'Greška prilikom snimanja ZIP fajla.' });
-            });
-        
+        return await new Promise((resolve, reject) => {
+            output.on('close', () => resolve({ success: true, path: zipPath }));
+            output.on('error', () => reject({ error: 'Greška prilikom snimanja ZIP fajla.' }));
             archive.finalize();
         });
+
     } catch (err) {
         return { error: 'Greška prilikom kreiranja ZIP fajla.' };
     }

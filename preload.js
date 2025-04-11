@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('csvTools', {
-    selectAndSplitCSV: () => ipcRenderer.invoke('select-and-split')
+    selectAndSplitCSV: (rowsPerFile) => ipcRenderer.invoke('select-and-split', rowsPerFile)
 });

@@ -1,8 +1,17 @@
-document.getElementById('processBtn').addEventListener('click', async () => {
-    const status = document.getElementById('status');
+const processBtn = document.getElementById('processBtn');
+const status = document.getElementById('status');
+const rowsInput = document.getElementById('rowsPerFile');
+
+processBtn.addEventListener('click', async () => {
     status.textContent = 'Učitavanje CSV fajla...';
 
-    const result = await window.csvTools.selectAndSplitCSV();
+    const rows = parseInt(rowsInput.value);
+    if (isNaN(rows) || rows < 1) {
+        status.textContent = 'Unesite validan broj redova (> 0).';
+        return;
+    }
+
+    const result = await window.csvTools.selectAndSplitCSV(rows);
 
     if (result?.success) {
         status.textContent = 'Uspešno kreiran ZIP fajl: ' + result.path;
