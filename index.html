@@ -7,14 +7,30 @@
         body { font-family: sans-serif; padding: 2rem; background: #f8f8f8; }
         button { padding: 0.5rem 1rem; font-size: 16px; }
         #status { margin-top: 1rem; font-weight: bold; }
+        .flex { display: flex; }
+        .justify-start { justify-content: flex-start; }
+        .justify-center { justify-content: center; }
+        .justify-end { justify-content: flex-end; }
+        .items-start { align-items: flex-start; }
+        .items-center { align-items: center; }
+        .items-end { align-items: flex-end; }
+        .flex-col { flex-direction: column; }
+        .gap { gap: 1rem; }
     </style>
 </head>
 <body>
-    <h1>CSV Splitter u ZIP</h1>
-    <p>Klikni na dugme ispod da izabereš CSV fajl za rasparčavanje:</p>
-    <input type="number" id="rowsPerFile" placeholder="Broj redova po fajlu" min="1" value="100" style="margin-bottom: 1rem; padding: 0.5rem" />
-    <button id="processBtn">Izaberi CSV i zapakuj</button>
-    <p id="status"></p>
+    <div class="flex flex-col justify-center items-center">
+        <h1>CSV Splitter</h1>
+    </div>
+    <div class="flex flex-col justify-center items-center">
+        <p>U polju za unos, izaberi koliko redova svaki fajl treba da ima.</p>
+        <p>Klikom da dugme ispod, izaberi .csv fajl koji želiš da &quot;razbiješ&quot; u manje fajlove.</p>
+    </div>
+    <div class="flex flex-col justify-center items-center gap">
+        <input type="number" id="rowsPerFile" placeholder="Broj redova po fajlu" min="1" value="100" style="margin-bottom: 1rem; padding: 0.5rem" />
+        <button id="processBtn">Izaberi CSV i sačuvaj kao .zip</button>
+        <p id="status"></p>
+    </div>
 
     <script src="renderer.js"></script>
 </body>
