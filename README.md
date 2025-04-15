@@ -74,7 +74,7 @@ Aplikacija će biti generisana u dist/ folderu kao samostalni .exe sa svim potre
 <details>
 <summary>📝 TODO / Planirani dodaci</summary>
 
-- [ ] Podešavanje broja redova po fajlu
+- [x] Podešavanje broja redova po fajlu
 - [ ] Drag & drop CSV fajla u aplikaciju
 - [ ] Tema (dark/light)
 - [ ] Verzija za macOS i Linux
